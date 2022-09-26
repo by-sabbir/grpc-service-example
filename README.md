@@ -1,4 +1,4 @@
-![gRPC Example Service Status](https://github.com/by-sabbir/grpc-service-example/actions/workflows/geometry.yml/badge.svg) [![Test Coverage](https://codecov.io/gh/by-sabbir/grpc-service-example/branch/master/graph/badge.svg?token=8AOQZS8GW2)](https://codecov.io/gh/by-sabbir/grpc-service-example)
+![gRPC Example Service Status](https://github.com/by-sabbir/grpc-service-example/actions/workflows/geometry.yml/badge.svg) [![Test Coverage](https://codecov.io/gh/by-sabbir/grpc-service-example/branch/master/graph/badge.svg?token=8AOQZS8GW2)](https://codecov.io/gh/by-sabbir/grpc-service-example) [![Go Report](https://goreportcard.com/badge/github.com/by-sabbir/grpc-service-example)](https://goreportcard.com/report/github.com/by-sabbir/grpc-service-example)
 # gRpc Service in Go
 ---
 
