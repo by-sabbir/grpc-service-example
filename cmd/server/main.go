@@ -27,7 +27,7 @@ func main() {
 	log.Println("tcp listener started at port: ", port)
 	grpcServer := grpc.NewServer()
 	geomServiceServer := geomServer.NewServer()
-	// registering gemoetry service server into grpc server
+	// registering geometry service server into grpc server
 	pb.RegisterGeometryServiceServer(grpcServer, geomServiceServer)
 
 	if err := grpcServer.Serve(lis); err != nil {
