@@ -1,23 +1,15 @@
 package main
 
 import (
-	"context"
 	"fmt"
 	"log"
 	"net"
 	"os"
 
+	geomServer "github.com/by-sabbir/grpc-service-example/internal/geometry"
 	pb "github.com/by-sabbir/grpc-service-example/proto"
 	"google.golang.org/grpc"
 )
-
-type Server struct {
-	pb.GeometryServiceServer
-}
-
-func NewServer() *Server {
-	return &Server{}
-}
 
 var (
 	host = "localhost"
@@ -34,7 +26,7 @@ func main() {
 	}
 	log.Println("tcp listener started at port: ", port)
 	grpcServer := grpc.NewServer()
-	geomServiceServer := NewServer()
+	geomServiceServer := geomServer.NewServer()
 	// registering gemoetry service server into grpc server
 	pb.RegisterGeometryServiceServer(grpcServer, geomServiceServer)
 
@@ -42,18 +34,4 @@ func main() {
 		log.Println("error serving grpc: ", err)
 		os.Exit(1)
 	}
-}
-
-func (s *Server) Area(ctx context.Context, in *pb.RectRequest) (*pb.AreaResponse, error) {
-	log.Println("invoked Area: ", in)
-	return &pb.AreaResponse{
-		Result: in.Height * in.Width,
-	}, nil
-}
-
-func (s *Server) Perimeter(ctx context.Context, in *pb.RectRequest) (*pb.PermiterResponse, error) {
-	log.Println("invoked Area: ", in)
-	return &pb.PermiterResponse{
-		Result: 2 * (in.Height + in.Width),
-	}, nil
 }
