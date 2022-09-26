@@ -1,0 +1,24 @@
+syntax = "proto3";
+package geometry;
+
+option go_package = "github.com/by-sabbir/grpc-service-example/proto";
+
+
+message RectRequest {
+    float height = 1;
+    float width = 2;
+}
+
+message AreaResponse {
+    float result = 1;
+}
+
+message PermiterResponse {
+    float result = 1;
+}
+
+
+service GeometryService {
+    rpc Area (RectRequest) returns (AreaResponse);
+    rpc Perimeter (RectRequest) returns (PermiterResponse);
+}
